@@ -49,9 +49,7 @@ public class Test {
 		negocio.registrarVenta(venta1);
 		negocio.registrarVenta(venta2);
 		
-		System.out.println("Ganancias del dia " + fechaAux + ": " + negocio.gananciasDeUnDia(fechaAux));
-		
-		
+		System.out.println("Ganancias del dia " + fechaAux + ": " + negocio.gananciasDeUnDia(fechaAux));	
 		
 	}
 

@@ -18,6 +18,9 @@ public class Negocio {
 	public void registrarVenta(Venta venta){
 		ventas.add(venta);
 	}
-	
 
+	public List<Venta> getVentas() {
+		return ventas;
+	}
+	
 }
