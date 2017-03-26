@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.time.LocalDate;
@@ -21,10 +22,10 @@ public class Test {
 		System.out.println("Precio de prenda3 es " + prenda3.precio());
 		System.out.println("prenda3 es..." + prenda3.getRubro());
 		
-		Item item1 = new Item(prenda1,6);
+		Item item1 = new Item(prenda2,3);
 		System.out.format(Locale.ENGLISH,"Importe de item1 es " + "%.2f%n", item1.importe());
 		
-		Item item2 = new Item(prenda2,3);
+		Item item2 = new Item(prenda1,6);
 		System.out.format(Locale.ENGLISH,"Importe de item2 es " + "%.2f%n", item2.importe());
 		
 		Item item3 = new Item(prenda3,5);
@@ -37,6 +38,12 @@ public class Test {
 		LocalDate fechaVenta = LocalDate.now();
 		
 		Venta venta1 = new Venta(itemsVenta,fechaVenta);
+		
+		Collections.sort(venta1.getItems());
+		System.out.println("Primer item de venta1: "
+						+ venta1.getItems().get(0).getPrenda().getRubro() 
+						+ " x" + venta1.getItems().get(0).getCantidad()
+						+ " - importe: " + venta1.getItems().get(0).importe());
 		System.out.println("Fecha de venta1 es " + venta1.getFecha());
 		System.out.println("Importe de venta1 es " + venta1.importe());
 		
@@ -44,13 +51,13 @@ public class Test {
 		System.out.println("Fecha de venta2 es " + venta2.getFecha());
 		System.out.println("Importe de venta2 es " + venta2.importe());
 		
-		LocalDate fechaAux = LocalDate.of(2017,3,24);
+		LocalDate fechaAux = LocalDate.of(2017,3,26);
 		
 		negocio.registrarVenta(venta1);
 		negocio.registrarVenta(venta2);
 		
 		System.out.println("Ganancias del dia " + fechaAux + ": " + negocio.gananciasDeUnDia(fechaAux));	
-		
+			
 	}
 
 }
